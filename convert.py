@@ -11,23 +11,22 @@ number_test_images = 2000; # Number of train images in each category
 npy_dir = './raw/'
 train_dir = './train/'
 test_dir = './test/'
-npy_files = [f for f in sorted(os.listdir(npy_dir)) if os.path.isfile(os.path.join(npy_dir, f))]
+npy_files = [f for f in sorted(filter(lambda x: x.endswith(".npy"), os.listdir(npy_dir))) if os.path.isfile(os.path.join(npy_dir, f))]
 print(npy_files)
 
 categories = []
 
 for x in npy_files:
 	category_split = x.split('.')
-	category = category_split[0].title()
+	category = category_split[0]
 	categories.append(category)
 	
 print(categories)
 
 if not os.path.exists(test_dir):
 	os.makedirs(test_dir)
-for y in categories:
-	if not os.path.exists(os.path.join(train_dir, y)):
-		os.makedirs(os.path.join(train_dir, y))
+if not os.path.exists(train_dir):
+	os.makedirs(train_dir)
 
 index_cat = 0		
 test_labeled_images = []
@@ -37,8 +36,8 @@ for z in npy_files:
 	print('Saving in', categories[index_cat])
 	for a in range(0, number_train_images, 1):
 		print('Processing Image', a+1)
-		file_name = '%s.jpg' % (a+1)
-		file_path = os.path.join(train_dir, categories[index_cat], file_name)
+		file_name = '%s_%s.jpg' % (categories[index_cat], a+1)
+		file_path = os.path.join(train_dir, file_name)
 		img = images[a].reshape(28,28)
 		f_img = Image.fromarray(img)
 		inverted_image = PIL.ImageOps.invert(f_img)
