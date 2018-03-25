@@ -69,6 +69,12 @@ nose|![nose_1](https://user-images.githubusercontent.com/329257/37873119-a495e01
 * Classes whose name starts with "A" or "B".
     * airplane, ambulance, angel, ant, anvil, apple, arm, asparagus, axe, backpack, bandage, barn, bat, bathtub, beach, bear, beard, bed, bee, belt, bench, bicycle, binoculars, bird, blackberry, blueberry, book, boomerang, bottlecap, bowtie, bracelet, brain, bread, bridge, broccoli, broom, bucket, bulldozer, bus, bush, butterfly
 
+```
+$ wget -q https://github.com/ikeyasu/circle-zigzag-dataset/releases/download/41/train.zip
+$ wget -q https://github.com/ikeyasu/circle-zigzag-dataset/releases/download/41/test.zip
+$ wget -q https://github.com/ikeyasu/circle-zigzag-dataset/releases/download/41/answer.csv
+```
+
 example:
 
 class|-|-
